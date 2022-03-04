@@ -1,6 +1,6 @@
 const search=document.getElementById('search');
 const submit=document.getElementById('submit');
-const mealEl=document.getElementById('mealp');
+const mealEl=document.getElementById('image');
 const resultHeading=document.getElementsByClassName('result-heading');
 const singleMeal=document.getElementById('single-meaL');
 
@@ -10,6 +10,7 @@ function searchMeal(e)
     e.preventDefault();  //to clear the search section 
 
     //get search meal
+    // singleMeal.innerHTML="";
 
     console.log(search.value);
 
@@ -18,19 +19,25 @@ function searchMeal(e)
     if(calories)
     {
         fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=234df877100a4ae0b183c067f0be6ecd&timeFrame=day&targetCalories=${calories}`)
-        
-        .then((res)=>res.json())
-       
-        .then((mealData)=>{
-            resultHeading.innerHTML=`<h2>Search Result for ${calories}`
-            mealEl.innerHTML=mealData.meals.map(
-                    meal=>`
+      .then((res)=>res.json())
+      .then((data)=> console.log(data))
+        .then((data)=>{
+      resultHeading.innerHTML=`<h2>Search Result for ${calories}`;
+            mealEl.innerHTML=data.meals.map(
+                    (meal)=>`
                     <div class="meal" >
-                    <img src="${meal.id}">
+                    <img src="${meal.id}" alt="${meal.title}"/>
                     </div>`
                 )  })
+
+       
+    
     }
 }
+
+
+
+
 
 //EVENTLISTERNERS
 
