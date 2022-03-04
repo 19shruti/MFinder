@@ -45,5 +45,11 @@ input[type="text"]{
     border-radius: 0;
     
 }
+#image{
+    border: 1px solid #ddd;
+    padding: 5%;
+    margin:12px;
+    border-radius: 19px;
+}
 
 
