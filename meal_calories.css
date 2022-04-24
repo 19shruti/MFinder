@@ -46,10 +46,13 @@ input[type="text"]{
     
 }
 #image{
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     padding: 5%;
     margin:12px;
     border-radius: 19px;
+    image-resolution: 120rem;
+   
 }
+
 
 
